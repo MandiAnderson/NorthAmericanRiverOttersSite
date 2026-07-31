@@ -1,0 +1,65 @@
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+  width: 100%;
+  float: left;
+  background-size: cover;
+  &.automatic-ripples, &.hover {
+    background-image: url('https://www.publiclandstour.us/wp-content/uploads/Clear-water-and-river-rocks.jpg');
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+.otter {
+    width: 150px;
+    height: auto;
+    z-index: 1;
+}
+
+.speech-bubble {
+    background-color: white;
+    color: black;
+    padding: 15px;
+    opacity: 0;
+    position: fixed;
+    width: 150px;
+    bottom: 135px;
+    right: 175px;
+    text-shadow: none;
+    z-index: 1;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    transform: translateX(1vw);
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    right: -30px;
+    border-width: 15px;
+    border-style: solid;
+    border-color: transparent transparent transparent white;
+}
+
+.otter:hover + .speech-bubble  {
+    opacity: 1;
+    transition: all 0.3s ease;
+    transform: translateX(0);
+}
+
+.otter:hover img {
+    animation: bounce 0.5s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
